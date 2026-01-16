@@ -1,0 +1,18 @@
+:root {
+  --background-color: #ffffff;
+  --font-color: #222;
+  --btn-border: #ccc;
+  --card-bg: #f9f9f9;
+}
+
+.dark-mode {
+  --background-color: #121212;
+  --font-color: #eee;
+  --btn-border: #555;
+  --card-bg: #1e1e1e;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
