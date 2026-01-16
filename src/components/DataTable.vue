@@ -160,7 +160,7 @@ th, td {
 
 th {
   background: rgba(100, 108, 255, 0.05);
-  padding: 14px 18px;
+  padding: 8px 12px;
   text-align: left;
   font-size: 0.85rem;
   color: #646cff;
@@ -169,7 +169,7 @@ th {
 }
 
 td {
-  padding: 14px 18px;
+  padding: 8px 12px;
   border-top: 1px solid var(--btn-border);
   color: var(--font-color);
   font-size: 0.9rem;
