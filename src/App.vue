@@ -26,47 +26,47 @@ const mostrarNav = computed(() => route.name !== 'NotFound' && route.path !== '/
 </script>
 
 <style>
+/* App.vue - Estilos Corregidos */
+
 .app-wrapper {
   display: flex;
-  min-height: 100vh;
-  width: 100%;
+  height: 100vh; /* Obliga a la app a medir exactamente lo que mide la pantalla */
+  width: 100vw;
+  overflow: hidden; /* Prohibido el scroll en toda la pantalla */
 }
 
-/* --- LOGICA DE DISEÑO --- */
-
-/* Si el menú es SUPERIOR (Top) */
-.layout-top { flex-direction: column; }
+/* MODO SUPERIOR */
+.layout-top { 
+  flex-direction: column; 
+}
 .layout-top .content {
-  padding-top: calc(64px + 2rem);
   width: 100%;
+  padding-top: calc(64px + 2rem); /* Altura del nav + espacio */
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-/* Si el menú es LATERAL (Left) */
-.layout-left { flex-direction: row; }
+/* MODO LATERAL */
+.layout-left { 
+  flex-direction: row; 
+}
 .layout-left .content {
-  margin-left: 260px; /* Ancho de la barra lateral */
-  padding-top: 2rem;
-  width: calc(100% - 260px);
+  flex: 1; /* Esto hace que el contenido tome TODO el ancho restante automáticamente */
+  margin-left: 260px; /* Espacio exacto para el Navbar fijo */
+  padding: 2rem;
+  min-width: 0; /* MUY IMPORTANTE: evita que los hijos (tablas) rompan el flexbox */
 }
 
 .content {
-  flex: 1;
-  width: 100%; /* Asegura que ocupe el ancho disponible */
-  max-width: 100%; /* Cambia el 1200px por 100% para que sea fluido */
-  margin: 0;
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: padding 0.3s ease, margin 0.3s ease;
 }
 
+/* Responsive: Cuando el menú lateral se oculta o se pone arriba */
 @media (max-width: 768px) {
-  .layout-left .content { margin-left: 0; width: 100%; padding-top: 80px; }
-}
-
-/* Si quieres un límite de ancho, aplícalo solo en pantallas muy grandes */
-@media (min-width: 1600px) {
-  .content {
-    max-width: 1400px;
-    margin: 0 auto;
+  .layout-left .content { 
+    margin-left: 0; 
+    padding-top: 80px; 
   }
 }
 </style>

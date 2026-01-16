@@ -2,7 +2,6 @@
   <div class="view-container">
     <div class="page-title">
       <h1>📦 Almacén de Materiales</h1>
-      <p>Consulta y edición de inventario global</p>
     </div>
 
     <DataTable 
@@ -75,7 +74,7 @@ const eliminar = (item: any) => confirm(`¿Eliminar ${item.nombre}?`)
 <style scoped>
 .view-container {
   width: 100%;
-  padding: 0; /* Deja que App.vue maneje el padding o usa uno pequeño */
+  max-width: 100%; /* Asegura que no haya límites en monitores anchos */
   display: flex;
   flex-direction: column;
 }

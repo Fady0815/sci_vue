@@ -87,7 +87,13 @@ const paginatedData = computed(() => {
 </script>
 
 <style scoped>
-.datatable-wrapper { width: 100%; font-family: sans-serif; }
+.datatable-wrapper {
+  width: 100%;
+  height: 100%; /* Usa todo el alto disponible del main */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Evita que el wrapper se salga */
+}
 
 .table-header {
   display: flex;
@@ -130,18 +136,26 @@ const paginatedData = computed(() => {
 }
 
 .table-container {
+  width: 100%;
   background: var(--card-bg);
   border: 1px solid var(--btn-border);
   border-radius: 12px;
-  overflow-x: auto; /* ESTO ES VITAL: permite scroll lateral en pantallas chicas */
-  width: 100%;
+  /* El scroll lateral ocurre AQUÍ dentro, no en la página entera */
+  overflow-x: auto; 
   box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px; /* Asegura que la tabla no se colapse demasiado */
+  /* Esto asegura que las columnas tengan un ancho mínimo y no se aplasten */
+  table-layout: auto; 
+}
+
+th, td {
+  padding: 14px 18px;
+  /* Evita que el texto de las celdas se rompa en mil líneas */
+  white-space: nowrap; 
 }
 
 th {
